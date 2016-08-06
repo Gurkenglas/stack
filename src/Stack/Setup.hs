@@ -809,7 +809,7 @@ installGHCPosix version _ archiveFile archiveType destDir = do
     let tarDep =
           case (platform, archiveType) of
             (Platform _ Cabal.OpenBSD, TarXz) -> checkDependency "gtar"
-            _ -> checkDependency "gtar" <|> checkDependency "tar"
+            _ -> checkDependency "tar"
     (zipTool, makeTool, tarTool) <- checkDependencies $ (,,)
         <$> checkDependency zipTool'
         <*> (checkDependency "gmake" <|> checkDependency "make")
